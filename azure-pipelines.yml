@@ -10,10 +10,16 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'Resource Group'
+    azureResourceManagerConnection: 'AzureRmPipeline-conn'
+    subscriptionId: 'd0a0cc5b-ad36-42b9-9f1f-0e956785b35c'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: 'myResourceGroup'
+    location: 'Central US'
+    templateLocation: 'Linked artifact'
+    csmFile: 'azuredeploy.json'
+    overrideParameters: '-projectName mgdsoft10 -linkedTemplateUri https://raw.githubusercontent.com/MGDSoft/azure-test/master/azuredeploy.json'
+    deploymentMode: 'Incremental'
+    deploymentName: 'DeployPipelineTemplate'
