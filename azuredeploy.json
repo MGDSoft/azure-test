@@ -39,7 +39,8 @@
         "properties": {
           "mode": "Incremental",
           "templateLink": {
-            "relativePath": "linkedStorageAccount.json"
+            "uri":"https://raw.githubusercontent.com/MGDSoft/azure-test/master/azuredeploy.json",
+            "contentVersion":"1.0.0.0"
           },
           "parameters": {
             "storageAccountName": {
