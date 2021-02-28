@@ -4,11 +4,11 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
       "projectName": {
-        "type": "string",
-        "minLength": 3,
-        "maxLength": 11,
-        "metadata": {
-          "description": "Specify a project name that is used to generate resource names."
+          "reference": {
+            "keyVault": {
+                "id": "/subscriptions/d0a0cc5b-ad36-42b9-9f1f-0e956785b35c/resourceGroups/myResourceGroup/providers/Microsoft.KeyVault/vaults/clavee"
+            },
+            "secretName": "projectName"
         }
       },
       "location": {
